@@ -5,11 +5,12 @@ game =
 			return
 		gfx.load ->
 			rand = (max) -> Math.floor Math.random()*max
-			for y in [0..19]
-				for x in [0..23]
-					col = rand 7
-					row = rand 2
-					gfx.drawSprite col, row, x*24, y*24
+			makeNinja = () ->
+				x: rand gfx.w
+				y: rand gfx.h
 
+			drawNinja = (n) -> gfx.drawSprite 0, 1, n.x, n.y
+			ninjas = (makeNinja() for [0..20])
+			drawNinja n for n in ninjas
 
 game.init()
