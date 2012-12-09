@@ -14,15 +14,12 @@ gfx =
 		@sprites = new Image()
 		@sprites.src = "assets/sprites.png"
 		@sprites.onload = -> onload()
-	drawSprite: (col, row, x, y) ->
-		@ctx.drawImage @sprites,
-			col*24, row*24, 24, 24,
-			x, y, 24, 24
-	drawSpriteFancy: (col, row, x, y, w, h, scale) ->
+	drawSprite: (col, row, x, y, w = 1, h = 1, scale = 1) ->
 		w *= @tileW
 		h *= @tileH
 		@ctx.drawImage @sprites,
-			col * w, row * h, w, h,
-			x, y, w *scale, h * scale
+			col*w, row*h, w, h,
+			x, y, w * scale, h * scale
+
 
 @gfx = gfx
