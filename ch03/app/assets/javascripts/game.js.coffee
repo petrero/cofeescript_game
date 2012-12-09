@@ -11,6 +11,7 @@ game =
 
 			drawNinja = (n) -> gfx.drawSprite 0, 1, n.x, n.y
 			ninjas = (makeNinja() for [0..20])
-			drawNinja n for n in ninjas
+			leftNinjas = (n for n in ninjas when n.x < gfx.w / 2)
+			drawNinja n for n in leftNinjas
 
 game.init()
