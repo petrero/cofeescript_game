@@ -1,5 +1,5 @@
 class @Entity
-	constructor: (@x, @y) ->
+	constructor: (@x, @y, @level) ->
 	speed: 4
 	dir: "LEFT"
 	update: ->
