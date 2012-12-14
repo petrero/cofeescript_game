@@ -81,3 +81,6 @@ class @Entity
 		if not @onLadder and not @falling
 			if not (bl.solid or br.solid or bl.climbable or br.climbable)
 				@falling = true
+		@onTopOfLadder =
+			@onLadder and not (tl.climbable or tr.climbable) and
+			(@y + @h) % gfx.tileH is 0
