@@ -16,11 +16,11 @@ class @Level
 			for col, x in row
 				switch col
 					when "@" then new Dirt()
-					when "X"
-						@addNinja x, y
-						new Block()
 					when "P"
 						@addPlayer x, y
+						new Block()
+					when "X"
+						@addNinja x, y
 						new Block()
 					when "O" then new Rock()
 					when "*"
@@ -35,7 +35,7 @@ class @Level
 	addNinja: (x, y) ->
 		xPos = x * gfx.tileW
 		yPos = y * gfx.tileH
-		ninja = new Ninja xPos, yPos, @
+		ninja = new Ninja xPos, yPos, @, @game.player
 		@ninjas.push ninja
 	addPlayer: (x, y) ->
 		@game.setPlayer x * gfx.tileW, y * gfx.tileH, @
