@@ -26,6 +26,8 @@ class @Level
 					when "*"
 						@treasures++
 						new Treasure()
+					when "#" then new Ladder()
+					when "-" then new Ladder true
 					else new Block()
 		#4. Set the lecel height and width
 		@h = @map.length

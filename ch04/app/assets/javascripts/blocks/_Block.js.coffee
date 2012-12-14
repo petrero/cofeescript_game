@@ -1,4 +1,5 @@
 class @Block
+	climbable: false
 	solid: false
 	constructor: ->
 	update: ->
