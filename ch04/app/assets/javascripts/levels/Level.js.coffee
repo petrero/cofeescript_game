@@ -1,4 +1,3 @@
-..
 class @Level
 	w: 0
 	h: 0

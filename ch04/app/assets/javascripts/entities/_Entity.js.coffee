@@ -4,11 +4,17 @@ class @Entity
 	w: 18
 	h: 24
 	constructor: (@x, @y, @level) ->
+		# Falling flags
+		@falling = true
+		@wasFalling = false
 	speed: 4
 	dir: "LEFT"
 	update: ->
 	render: (gfx) -> gfx.ctx.fillText "?", @x, @y
 	move: (x, y) ->
+		# Add falling speed
+		y += @speed * 2 if @falling
+		@wasFalling = @falling
 		# 1. Determine the intended position we'll move to
 		xo = x
 		yo = y
@@ -26,6 +32,7 @@ class @Entity
 			yo = @level.getBlockEdge(@y, "VERT") - @y
 		if y > 0 and (bl.solid or br.solid)
 			yo = @level.getBlockEdge(yv + (@h - 1), "VERT") - @y - @h
+			@falling = false # Add this line to stop falling
 		# 4. Check possible block collisions due to horizontal movement
 		[tl, bl, tr, br] = @level.getBlocks(
 			[xv, @y],
