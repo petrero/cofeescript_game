@@ -22,6 +22,10 @@ class @Level
 					when "P"
 						@addPlayer x, y
 						new Block()
+					when "O" then new Rock()
+					when "*"
+						@treasures++
+						new Treasure()
 					else new Block()
 		#4. Set the lecel height and width
 		@h = @map.length
