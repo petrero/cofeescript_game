@@ -32,6 +32,14 @@ class @Ninja extends Entity
 				when 0, 1 then "LEFT"
 				when 2, 3 then "RIGHT"
 				else "IDLE"
+
+		# Just touched a ladder
+		if @onLadder and not @wasOnLadder
+			@state = "HUNTING" if Math.random() < 0.5
+
+		# spotted the professor so hunt at them
+		@state = "HUNTING" if py == @y
+
 		[x, y]
 	hunt: (px, py) ->
 		x = y = 0
