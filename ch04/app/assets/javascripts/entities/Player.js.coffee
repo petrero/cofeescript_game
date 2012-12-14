@@ -5,8 +5,14 @@ class @Player extends Entity
 	update: ->
 		xo = yo = 0
 
-		xo -= @speed if keys.left
-		xo += @speed if keys.right
+		if not @falling
+			if keys.left
+				xo -= @speed
+				@dir = "LEFT"
+			if keys.right
+				xo += @speed
+				@dir = "RIGHT"
+
 		yo -= @speed if keys.up
 		yo += @speed if keys.down
 
