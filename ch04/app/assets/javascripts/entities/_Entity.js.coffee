@@ -84,3 +84,6 @@ class @Entity
 		@onTopOfLadder =
 			@onLadder and not (tl.climbable or tr.climbable) and
 			(@y + @h) % gfx.tileH is 0
+
+		# Collect any touchables
+		block.touch @ for block in nearBlocks when block.touchable

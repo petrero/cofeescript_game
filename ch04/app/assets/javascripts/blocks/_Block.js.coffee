@@ -1,6 +1,7 @@
 class @Block
+	touchable: false
 	climbable: false
 	solid: false
 	constructor: ->
 	update: ->
-	render: (gfx, x, y) -> 
+	render: (gfx, x, y) ->
