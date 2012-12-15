@@ -15,7 +15,6 @@ keys =
 			when 38 then @up = isDown
 			when 40 then @down = isDown
 			when 32
-				console.log "FIRE AWAY!" if isDown
 				@space = isDown
 
 @keys = keys

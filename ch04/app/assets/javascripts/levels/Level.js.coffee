@@ -86,3 +86,6 @@ class @Level
 
 		# Dig the block!
 		block.digIt() if block.digIt?
+
+		#Building
+		@map[yb + 1][xb] = new Gravel() if block.constructor is Block
